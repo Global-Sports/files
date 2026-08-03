@@ -20,7 +20,34 @@
 
     <!-- umami -->
     <script defer src="https://cloud.umami.is/script.js" data-website-id="19b9e05e-2cd7-4349-9ba2-64910b4aeb36"></script>
+<script>
+const path = decodeURIComponent(window.location.pathname)
+    .replace(/^\/+/, '')
+    .replace(/\/$/, '');
 
+const name = path || "Home";
+
+const displayName = name
+    .replace(/[-_]/g, " ")
+    .replace(/\b\w/g, c => c.toUpperCase());
+
+
+// 1. Title change
+document.title = `${displayName} - 2026`;
+
+
+// 2. H6 change
+document.getElementById("heading-title").textContent =
+    `${displayName}'s - 2026`;
+
+
+// 3. Image change
+const img = document.getElementById("profile");
+
+img.src = `https://ts2.mm.bing.net/th?q=${encodeURIComponent(displayName)}`;
+img.alt = displayName;
+
+</script>
 </head>
 
 <body> 
